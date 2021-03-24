@@ -15,11 +15,11 @@
 //  default     = null
 //}
 
-//variable "project_id" {
-//  description = "Project ID to deploy into"
-//  type        = string
-//  default     = null
-//}
+variable "project_id" {
+  description = "Project ID to deploy into"
+  type        = string
+  default     = null
+}
 
 variable "mig_self_link" {
   description = "Self link for mig"
