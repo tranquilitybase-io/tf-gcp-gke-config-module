@@ -26,3 +26,9 @@ variable "mig_self_link" {
   type = string
   default = null
 }
+
+variable "mig_instance_zone" {
+  description = "Forward proxy zone"
+  type = string
+  default = null
+}
