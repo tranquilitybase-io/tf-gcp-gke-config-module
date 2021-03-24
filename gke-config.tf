@@ -20,7 +20,7 @@ resource "null_resource" "kubectl" {
   //    always = timestamp()
   //  }
   provisioner "local-exec" {
-    command     = "gcloud compute ssh ${data.google_compute_instance_group.mig_instances.instances[0]} --project ${var.project_id} -- -L 3128:localhost:3128 -N -q -f"
+    command     = "gcloud compute ssh ${data.google_compute_instance_group.mig_instances.instances} --project ${var.project_id} -- -L 3128:localhost:3128 -N -q -f"
     interpreter = ["bash", "-c"]
   }
 }
