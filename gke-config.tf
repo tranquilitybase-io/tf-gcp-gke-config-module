@@ -10,9 +10,9 @@
 # limitations under the License.
 
 data "google_compute_instance_group" "mig_instances" {
-  project    = var.project_id
-  self_link  = var.mig_self_link
-  zone       = var.mig_instance_zone
+  project   = var.project_id
+  self_link = var.mig_self_link
+  zone      = var.mig_instance_zone
 }
 
 //resource "null_resource" "kubectl" {
