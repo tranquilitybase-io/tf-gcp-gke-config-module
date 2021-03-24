@@ -9,17 +9,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-variable "forward_proxy_name" {
-  description = "Forward proxy name"
-  type        = string
-  default     = null
-}
+//variable "forward_proxy_name" {
+//  description = "Forward proxy name"
+//  type        = string
+//  default     = null
+//}
 
-variable "project_id" {
-  description = "Project ID to deploy into"
-  type        = string
-  default     = null
-}
+//variable "project_id" {
+//  description = "Project ID to deploy into"
+//  type        = string
+//  default     = null
+//}
 
 variable "mig_self_link" {
   description = "Self link for mig"
