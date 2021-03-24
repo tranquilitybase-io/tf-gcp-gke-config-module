@@ -21,8 +21,8 @@ variable "project_id" {
   default     = null
 }
 
-variable "mig_self_link" {
-  description = "Self link for mig"
+variable "mig_name" {
+  description = "Name of forward proxy mig"
   type = string
   default = null
 }

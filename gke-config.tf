@@ -10,9 +10,9 @@
 # limitations under the License.
 
 data "google_compute_instance_group" "mig_instances" {
-  project   = var.project_id
-  self_link = var.mig_self_link
-  zone      = var.mig_instance_zone
+  name      = "forward-proxy-mig" //var.mig_name
+  project   = "tb-management-plane-cst7s" //var.project_id
+  zone      =  "europe-west1-b" //var.mig_instance_zone
 }
 
 //resource "null_resource" "kubectl" {
