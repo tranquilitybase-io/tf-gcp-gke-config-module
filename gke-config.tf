@@ -15,12 +15,12 @@ data "google_compute_instance_group" "mig_instances" {
   zone    = var.mig_instance_zone
 }
 
-//resource "null_resource" "kubectl" {
-//  //  triggers = {
-//  //    always = timestamp()
-//  //  }
-//  provisioner "local-exec" {
-//    command     = "gcloud compute ssh ${data.google_compute_instance_group.mig_instances.instances[0]} --project ${var.project_id} -- -L 3128:localhost:3128 -N -q -f"
-//    interpreter = ["bash", "-c"]
-//  }
-//}
+resource "null_resource" "kubectl" {
+  //  triggers = {
+  //    always = timestamp()
+  //  }
+  provisioner "local-exec" {
+    command     = "gcloud compute ssh ${data.google_compute_instance_group.mig_instances.instances[0]} --project ${var.project_id} -- -L 3128:localhost:3128 -N -q -f"
+    interpreter = ["bash", "-c"]
+  }
+}
