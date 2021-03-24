@@ -10,7 +10,6 @@
 # limitations under the License.
 
 data "google_compute_instance_group" "mig_instances" {
-  project_id = var.project_id
   self_link  = var.mig_self_link
 }
 
