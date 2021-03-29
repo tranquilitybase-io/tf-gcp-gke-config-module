@@ -70,3 +70,9 @@ variable "cluster_region" {
   type = string
   default = null
 }
+
+variable "forward_proxy_name" {
+  description = "Forward proxy instance name"
+  type = string
+  default = null
+}

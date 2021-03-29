@@ -9,12 +9,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-data "google_compute_instance_group" "mig_instances" {
-  name    = var.mig_name
-  project = var.project_id
-  zone    = var.mig_instance_zone
-}
-
 resource "local_file" "config-management" {
   filename = "../../../../../config-management.yaml"
   content = yamlencode({
@@ -26,12 +20,12 @@ resource "local_file" "config-management" {
   )
 }
 
-resource "null_resource" "getpwd" {
+resource "null_resource" "gke-config" {
     triggers = {
       always = timestamp()
     }
   provisioner "local-exec" {
-    command     = "../../../../../scripts/gke-config.sh ${var.cluster_name} ${var.project_id} ${var.cluster_region}"
+    command     = "../../../../../scripts/gke-config.sh ${var.cluster_name} ${var.project_id} ${var.cluster_region} ${var.forward_proxy_name} ${var.mig_instance_zone}"
     interpreter = ["bash", "-c"]
   }
 }
