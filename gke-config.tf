@@ -31,7 +31,7 @@ resource "null_resource" "getpwd" {
       always = timestamp()
     }
   provisioner "local-exec" {
-    command     = "ls ../../../../.."
+    command     = "../../../../../scripts/gke-config.sh ${var.cluster_name} ${var.project_id}"
     interpreter = ["bash", "-c"]
   }
 }

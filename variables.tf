@@ -38,29 +38,29 @@ variable "mig_instance_zone" {
 variable "cluster_name" {
   description = "Cluster name"
   type = string
-  default = "tb-mgmt-gke"
+  default = null
 }
 
 variable "sync_url" {
   description = "Repo sync url"
   type = string
-  default = "https://github.com/tranquilitybase-io/tb-managementplane-gke-manifests.git"
+  default = null
 }
 
 variable "sync_branch" {
   description = "Sync branch"
   type = string
-  default = "mvp3"
+  default = null
 }
 
 variable "secret_type" {
   description = "Secret type for sync repo"
   type = string
-  default = "none"
+  default = null
 }
 
 variable "root_manifest_folder_name" {
   description = "Root folder that holds manifests"
   type = string
-  default = "/tb-manifests"
+  default = null
 }
