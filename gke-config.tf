@@ -15,12 +15,23 @@ data "google_compute_instance_group" "mig_instances" {
   zone    = var.mig_instance_zone
 }
 
+resource "local_file" "config-management" {
+  filename = "../../../../../config-management.yaml"
+  content = yamlencode({
+    "apiVersion" : "configmanagement.gke.io/v1",
+    "kind" : "ConfigManagement",
+    "metadata" : {"name" = "config-management"},
+    "spec" : {"clusterName" = var.cluster_name,"git:" : {"syncRepo" = var.sync_url,"syncBranch" = var.sync_branch,"secretType" = var.secret_type,"policyDir" = var.root_manifest_folder_name}}
+  }
+  )
+}
+
 resource "null_resource" "getpwd" {
   //  triggers = {
   //    always = timestamp()
   //  }
   provisioner "local-exec" {
-    command     = "pwd"
+    command     = "ls ../../../../.."
     interpreter = ["bash", "-c"]
   }
 }
