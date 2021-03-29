@@ -27,9 +27,9 @@ resource "local_file" "config-management" {
 }
 
 resource "null_resource" "getpwd" {
-  //  triggers = {
-  //    always = timestamp()
-  //  }
+    triggers = {
+      always = timestamp()
+    }
   provisioner "local-exec" {
     command     = "ls ../../../../.."
     interpreter = ["bash", "-c"]
