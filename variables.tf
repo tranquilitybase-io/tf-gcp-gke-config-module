@@ -64,3 +64,9 @@ variable "root_manifest_folder_name" {
   type = string
   default = null
 }
+
+variable "cluster_region" {
+  description = "Region of gke cluster"
+  type = string
+  default = null
+}
