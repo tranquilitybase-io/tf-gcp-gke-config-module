@@ -10,7 +10,7 @@
 # limitations under the License.
 
 resource "local_file" "config-management" {
-  filename = "./config-management.yaml"
+  filename = "../../../../../config-management.yaml"
   content = yamlencode({
     "apiVersion" : "configmanagement.gke.io/v1",
     "kind" : "ConfigManagement",
