@@ -10,7 +10,7 @@
 # limitations under the License.
 
 resource "local_file" "config-management" {
-  filename = "../../../../../config-management.yaml"
+  filename = "./config-management.yaml"
   content = yamlencode({
     "apiVersion" : "configmanagement.gke.io/v1",
     "kind" : "ConfigManagement",
@@ -28,4 +28,5 @@ resource "null_resource" "gke-config" {
     command     = "../../../../../scripts/gke-config.sh ${var.cluster_name} ${var.project_id} ${var.cluster_region} ${var.forward_proxy_name} ${var.mig_instance_zone}"
     interpreter = ["bash", "-c"]
   }
+  depends_on = [local_file.config-management]
 }
