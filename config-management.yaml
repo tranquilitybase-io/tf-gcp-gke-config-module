@@ -11,4 +11,4 @@ spec:
     syncRepo: "/tb-manifests"
     syncBranch: "mvp3"
     secretType: "none"
-    policyDir: "https://github.com/tranquilitybase-io/tb-managementplane-gke-manifests.git"
+    policyDir: "https://github.com/tranquilitybase-io/tb-managementplane-gke-manifests"
