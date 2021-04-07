@@ -8,7 +8,9 @@ spec:
   # clusterName is required and must be unique among all managed clusters
   clusterName: tb-mgmt-gke
   git:
-    syncRepo: "/tb-manifests"
+    syncRepo: "https://github.com/tranquilitybase-io/tb-managementplane-gke-manifests"
     syncBranch: "mvp3"
     secretType: "none"
-    policyDir: "https://github.com/tranquilitybase-io/tb-managementplane-gke-manifests"
+    policyDir: "/tb-manifests"
+
+
