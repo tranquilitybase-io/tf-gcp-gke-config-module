@@ -1,0 +1,14 @@
+# config-management.yaml
+
+apiVersion: configmanagement.gke.io/v1
+kind: ConfigManagement
+metadata:
+  name: config-management
+spec:
+  # clusterName is required and must be unique among all managed clusters
+  clusterName: "tb-mgmt-gke"
+  git:
+    syncRepo: "/tb-manifests"
+    syncBranch: "none"
+    secretType: "mvp3"
+    policyDir: "https://github.com/tranquilitybase-io/tb-managementplane-gke-manifests.git"

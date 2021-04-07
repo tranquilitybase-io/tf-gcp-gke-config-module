@@ -9,16 +9,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-resource "local_file" "config-management" {
-  filename = "./config-management.yaml"
-  content = yamlencode({
-    "apiVersion" : "configmanagement.gke.io/v1",
-    "kind" : "ConfigManagement",
-    "metadata" : {"name" = "config-management"},
-    "spec" : {"clusterName" = var.cluster_name,"git:" : {"syncRepo" = var.sync_url,"syncBranch" = var.sync_branch,"secretType" = var.secret_type,"policyDir" = var.root_manifest_folder_name}}
-  }
-  )
-}
+//resource "local_file" "config-management" {
+//  filename = "./config-management.yaml"
+//  content = yamlencode({
+//    "apiVersion" : "configmanagement.gke.io/v1",
+//    "kind" : "ConfigManagement",
+//    "metadata" : {"name" = "config-management"},
+//    "spec" : {"clusterName" = var.cluster_name,"git:" : {"syncRepo" = var.sync_url,"syncBranch" = var.sync_branch,"secretType" = var.secret_type,"policyDir" = var.root_manifest_folder_name}}
+//  }
+//  )
+//}
 
 resource "null_resource" "gke-config" {
     triggers = {
@@ -28,5 +28,5 @@ resource "null_resource" "gke-config" {
     command     = "../../../../../scripts/gke-config.sh ${var.cluster_name} ${var.project_id} ${var.cluster_region} ${var.forward_proxy_name} ${var.mig_instance_zone}"
     interpreter = ["bash", "-c"]
   }
-  depends_on = [local_file.config-management]
+ // depends_on = [local_file.config-management]
 }
