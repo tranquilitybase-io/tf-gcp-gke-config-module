@@ -28,7 +28,9 @@ resource "null_resource" "gke-config" {
       always = timestamp()
     }
   provisioner "local-exec" {
-    command     = "./gke-config.sh ${var.cluster_name} ${var.project_id} ${var.cluster_region} ${var.forward_proxy_name} ${var.mig_instance_zone}"
+    //command     = "./gke-config.sh ${var.cluster_name} ${var.project_id} ${var.cluster_region} ${var.forward_proxy_name} ${var.mig_instance_zone}"
+    command     = "./gke-config.sh ${var.cluster_name} ${var.project_id} ${var.cluster_region} ${var.forward_proxy_name} ${var.forward_proxy_zone}"
+
     interpreter = ["bash", "-c"]
   }
   depends_on = [local_file.config-management]
