@@ -30,12 +30,6 @@ variable "project_id" {
 //  default = null
 //}
 
-variable "forward_proxy_zone" {
-  description = "Forward proxy zone"
-  type = string
-  default = null
-}
-
 ## creation of config-management config sync file
 
 variable "cluster_name" {
@@ -76,6 +70,12 @@ variable "cluster_region" {
 
 variable "forward_proxy_name" {
   description = "Forward proxy instance name"
+  type = string
+  default = null
+}
+
+variable "forward_proxy_zone" {
+  description = "Forward proxy instance zone"
   type = string
   default = null
 }
