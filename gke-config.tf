@@ -1,3 +1,6 @@
+# Copyright 2021 The Tranquility Base Authors
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
@@ -28,5 +31,5 @@ resource "null_resource" "gke-config" {
     command     = "./gke-config.sh ${var.cluster_name} ${var.project_id} ${var.cluster_region} ${var.forward_proxy_name} ${var.mig_instance_zone}"
     interpreter = ["bash", "-c"]
   }
- // depends_on = [local_file.config-management]
+  depends_on = [local_file.config-management]
 }
