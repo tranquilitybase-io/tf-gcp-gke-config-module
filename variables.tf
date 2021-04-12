@@ -18,18 +18,6 @@ variable "project_id" {
   default     = null
 }
 
-//variable "mig_name" {
-//  description = "Name of forward proxy mig"
-//  type = string
-//  default = null
-//}
-
-//variable "mig_instance_zone" {
-//  description = "Forward proxy zone"
-//  type = string
-//  default = null
-//}
-
 ## creation of config-management config sync file
 
 variable "cluster_name" {
