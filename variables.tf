@@ -15,7 +15,6 @@
 variable "project_id" {
   description = "Project ID to deploy into"
   type        = string
-  default     = null
 }
 
 ###
@@ -25,13 +24,11 @@ variable "project_id" {
 variable "cluster_name" {
   description = "Cluster name"
   type = string
-  default = null
 }
 
 variable "sync_url" {
   description = "Repo sync url"
   type = string
-  default = null
 }
 
 variable "sync_branch" {
@@ -49,23 +46,19 @@ variable "secret_type" {
 variable "root_manifest_folder_name" {
   description = "Root folder that holds manifests"
   type = string
-  default = null
 }
 
 variable "cluster_region" {
   description = "Region of gke cluster"
   type = string
-  default = null
 }
 
 variable "forward_proxy_name" {
   description = "Forward proxy instance name"
   type = string
-  default = null
 }
 
 variable "forward_proxy_zone" {
   description = "Forward proxy instance zone"
   type = string
-  default = null
 }
