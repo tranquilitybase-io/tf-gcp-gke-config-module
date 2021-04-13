@@ -8,4 +8,3 @@ HTTPS_PROXY=localhost:3128 cat config-management.yaml
 HTTPS_PROXY=localhost:3128 kubectl apply -f config-management.yaml
 HTTPS_PROXY=localhost:3128 kubectl get all --all-namespaces
 kill $pid
-
