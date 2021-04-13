@@ -35,13 +35,13 @@ variable "sync_url" {
 variable "sync_branch" {
   description = "Sync branch"
   type = string
-  default = null
+  default = "master"
 }
 
 variable "secret_type" {
   description = "Secret type for sync repo"
   type = string
-  default = null
+  default = "none"
 }
 
 variable "root_manifest_folder_name" {
