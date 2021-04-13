@@ -1,3 +1,19 @@
+# tf-gcp-gke-config-module
+
+## Module Overview
+
+Terraform module for installing and configuring Config Sync to apply manifests to a private GKE cluster on the Google Cloud Platform (GCP).
+
+It deploys the following resources into a given GCP project:
+
+- Creates Config Sync Config file
+- Creates IAP tunnel to forward proxy to hit private GKE cluster
+- Installs Config Sync operator 
+- Configures Config Sync operator to sync external git GKE manifests into cluster
+
+## Usage
+Refer to the examples under [examples/](examples) directory.
+
 ## Requirements
 
 | Name | Version |
