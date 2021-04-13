@@ -16,7 +16,7 @@
 # Deploy and configure config sync
 ###
 
-resource "local_file" "config-management" {
+resource "local_file" "config-sync-management-yaml" {
   filename = "./config-management.yaml"
   content = yamlencode({
     "apiVersion" : "configmanagement.gke.io/v1",
@@ -36,5 +36,5 @@ resource "null_resource" "gke-config" {
 
     interpreter = ["bash", "-c"]
   }
-  depends_on = [local_file.config-management]
+  depends_on = [local_file.config-sync-management-yaml]
 }
