@@ -18,7 +18,9 @@ variable "project_id" {
   default     = null
 }
 
-## creation of config-management config sync file
+###
+# Creation of config-management config sync file
+###
 
 variable "cluster_name" {
   description = "Cluster name"
