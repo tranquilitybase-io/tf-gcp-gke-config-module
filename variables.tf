@@ -62,3 +62,29 @@ variable "forward_proxy_zone" {
   description = "Forward proxy instance zone"
   type = string
 }
+
+###
+# Workload identity
+###
+
+variable "service_account_names" {
+  description = "Service accounts to create for workload identity"
+  type        = list(string)
+}
+
+variable "service_account_prefix" {
+  description = "Prefix for service accounts used in workload identity"
+  type        = string
+  default     = "gke"
+}
+
+variable "service_account_description" {
+  description = "Service account descriptions used in workload identity"
+  type        = string
+  default     = "service account used in workload identity"
+}
+
+variable "kube_service_accounts" {
+  description = "Kubernetes service accounts with namespaces"
+  type        = list(string)
+}
