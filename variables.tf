@@ -70,12 +70,7 @@ variable "forward_proxy_zone" {
 variable "service_account_description" {
   description = "Service account descriptions used in workload identity"
   type        = string
-  default     = "service account used in workload identity"
-}
-
-variable "service_account_names" {
-  description = "Service accounts to create for workload identity"
-  type        = list(string)
+  default     = "Service account used in workload identity"
 }
 
 variable "service_account_prefix" {
@@ -84,7 +79,10 @@ variable "service_account_prefix" {
   default     = "gke"
 }
 
-variable "kube_service_accounts" {
-  description = "Kubernetes service accounts with namespaces"
-  type        = list(string)
+variable "workload_identity_service_account" {
+  type = map(object({
+    service_account_name = string
+    namespace = string
+  }))
+  description = "Service account to create in gcp for workload identity"
 }

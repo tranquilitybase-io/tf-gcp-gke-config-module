@@ -12,29 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-module "workload_identity_service_accounts" {
-  source        = "terraform-google-modules/service-accounts/google"
-  version       = "~> 3.0"
+module "workload-identity" {
+  source    = "terraform-google-modules/kubernetes-engine/google//modules/workload-identity"
+  version   = "14.1.0"
 
-  for_each      = var.service_account_names
+  for_each            = var.workload_identity_service_account
 
-  description   = var.service_account_description
-  names         = [each.key]
-  prefix        = var.service_account_prefix
-  project_id    = var.project_id
-}
-
-module "service_account_iam_bindings" {
-  source = "terraform-google-modules/iam/google//modules/service_accounts_iam"
-
-  for_each         = var.kube_service_accounts
-
-  service_accounts = [module.workload_identity_service_accounts]
-  project          = var.project_id
-  mode             = "additive"
-  bindings = {
-    "roles/iam.workloadIdentityUser" = [
-      "serviceAccount:${var.project_id}.svc.id.goog[${each.key}]",
-    ]
-  }
+  annotate_k8s_sa     = false
+  use_existing_k8s_sa = true
+  name                = each.value["service_account_name"]
+  namespace           = each.value["namespace"]
+  project_id          = var.project_id
 }
