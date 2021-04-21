@@ -5,7 +5,6 @@ echo "###"
 for i in "${!$6[@]}"
 do
   echo "key  : $i"
-  echo "value: ${array[$i]}"
 done
 echo "###"
 pid=$(pidof ssh)
