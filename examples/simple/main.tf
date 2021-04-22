@@ -15,12 +15,12 @@
 module "gke-config" {
   source = "../.."
 
-  cluster_name              = var.cluster_name
-  cluster_region            = var.cluster_region
-  forward_proxy_name        = var.forward_proxy_name
-  forward_proxy_zone        = var.forward_proxy_zone
-  project_id                = var.project_id
-  root_manifest_folder_name = var.root_manifest_folder_name
-  sync_url                  = var.sync_url
-  workload_identity         = var.workload_identity_service_account
+  cluster_name                      = var.cluster_name
+  cluster_region                    = var.cluster_region
+  forward_proxy_name                = var.forward_proxy_name
+  forward_proxy_zone                = var.forward_proxy_zone
+  project_id                        = var.project_id
+  root_manifest_folder_name         = var.root_manifest_folder_name
+  sync_url                          = var.sync_url
+  workload_identity_service_account = var.workload_identity_service_account
 }
