@@ -62,3 +62,27 @@ variable "forward_proxy_zone" {
   description = "Forward proxy instance zone"
   type = string
 }
+
+###
+# Workload identity
+###
+
+variable "service_account_description" {
+  description = "Service account descriptions used in workload identity"
+  type        = string
+  default     = "Service account used in workload identity"
+}
+
+variable "service_account_prefix" {
+  description = "Prefix for service accounts used in workload identity"
+  type        = string
+  default     = "gke"
+}
+
+variable "workload_identity_service_account" {
+  type = map(object({
+    service_account_name = string
+    namespace = string
+  }))
+  description = "Service account to create in gcp for workload identity"
+}

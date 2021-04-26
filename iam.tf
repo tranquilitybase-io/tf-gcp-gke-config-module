@@ -12,15 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-module "gke-config" {
-  source = "../.."
+module "workload-identity" {
+  source    = "terraform-google-modules/kubernetes-engine/google//modules/workload-identity"
+  version   = "14.1.0"
 
-  cluster_name                      = var.cluster_name
-  cluster_region                    = var.cluster_region
-  forward_proxy_name                = var.forward_proxy_name
-  forward_proxy_zone                = var.forward_proxy_zone
-  project_id                        = var.project_id
-  root_manifest_folder_name         = var.root_manifest_folder_name
-  sync_url                          = var.sync_url
-  workload_identity_service_account = var.workload_identity_service_account
+  for_each            = var.workload_identity_service_account
+
+  annotate_k8s_sa     = false
+  use_existing_k8s_sa = true
+  name                = each.value["service_account_name"]
+  namespace           = each.value["namespace"]
+  project_id          = var.project_id
 }

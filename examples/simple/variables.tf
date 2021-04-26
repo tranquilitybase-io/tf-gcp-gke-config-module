@@ -5,30 +5,38 @@ variable "project_id" {
 
 variable "cluster_name" {
   description = "Cluster name"
-  type = string
+  type        = string
 }
 
 variable "sync_url" {
   description = "Repo sync url"
-  type = string
+  type        = string
 }
 
 variable "root_manifest_folder_name" {
   description = "Root folder that holds manifests"
-  type = string
+  type        = string
 }
 
 variable "cluster_region" {
   description = "Region of gke cluster"
-  type = string
+  type        = string
 }
 
 variable "forward_proxy_name" {
   description = "Forward proxy instance name"
-  type = string
+  type        = string
 }
 
 variable "forward_proxy_zone" {
   description = "Forward proxy instance zone"
-  type = string
+  type        = string
+}
+
+variable "workload_identity_service_account" {
+  type = map(object({
+    service_account_name = string
+    namespace = string
+  }))
+  description = "GCP service account created for workload identity"
 }
