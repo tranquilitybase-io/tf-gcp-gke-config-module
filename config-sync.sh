@@ -15,3 +15,13 @@ for KEY in "${!namespaces[@]}"; do
 done
 kill $pid
 
+ISTIO_VERSION="$5"
+if [ -z "$ISTIO_VERSION" ] 
+then
+	echo "Skipped Installing Istio - No Version found"
+ 
+else
+	echo "Installing Istion verison  $ISTIO_VERSION"
+        ./istio.sh $ISTIO_VERSION
+fi
+
