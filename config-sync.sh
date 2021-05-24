@@ -15,7 +15,7 @@ for KEY in "${!namespaces[@]}"; do
 done
 
 
-ISTIO_VERSION="$5"
+ISTIO_VERSION="$6"
 if [ -z "$ISTIO_VERSION" ] 
 then
 	echo "Skipped Installing Istio - No Version found"
