@@ -22,6 +22,7 @@ then
  
 else
 	echo "Installing Istion verison  $ISTIO_VERSION"
+	chmod +x istio.sh
         ./istio.sh $ISTIO_VERSION
 fi
 
