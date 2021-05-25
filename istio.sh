@@ -1,6 +1,7 @@
 
 #Start of Istio Installation
-ISTIO_VERSION=1.9.4
+ISTIO_VERSION=$1
+echo "Istio version: $ISTIO_VERSION";
 
 sp='/-\|'
 sc=0
