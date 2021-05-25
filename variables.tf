@@ -63,6 +63,11 @@ variable "forward_proxy_zone" {
   type = string
 }
 
+variable "istio_version" {
+  description = "input for istio_version"
+  type = string
+}
+
 ###
 # Workload identity
 ###
