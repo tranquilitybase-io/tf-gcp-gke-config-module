@@ -23,6 +23,9 @@ then
 else
 	echo "Installing Istion verison  $ISTIO_VERSION"
 	echo "current directory: $PWD"
+	DIRECTORY=`dirname $0`
+	echo $DIRECTORY
+	cd $DIRECTORY
 	chmod +x ./istio.sh
         ./istio.sh $ISTIO_VERSION
 fi
