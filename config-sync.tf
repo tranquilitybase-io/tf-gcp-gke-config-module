@@ -32,7 +32,7 @@ resource "null_resource" "gke-config" {
       always = timestamp()
     }
   provisioner "local-exec" {
-    command     = "./config-sync.sh ${var.cluster_name} ${var.project_id} ${var.cluster_region} ${var.forward_proxy_name} ${var.forward_proxy_zone}"
+    command     = "./postbuildscripts/config-sync.sh ${var.cluster_name} ${var.project_id} ${var.cluster_region} ${var.forward_proxy_name} ${var.forward_proxy_zone} ${var.istio_version}"
 
     interpreter = ["bash", "-c"]
   }
