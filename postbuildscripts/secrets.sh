@@ -1,1 +1,1 @@
-kubectl apply $(ls secret*.yaml | awk ' { print " -f " $1 } ')
+kubectl apply -f secret-1.yaml
