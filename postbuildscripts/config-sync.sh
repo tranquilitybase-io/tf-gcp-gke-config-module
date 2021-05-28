@@ -29,4 +29,7 @@ else
         ./istio.sh $ISTIO_VERSION
 fi
 
+### Apply secrets
+./postbuildscripts/secrets.sh
+
 kill $pid
