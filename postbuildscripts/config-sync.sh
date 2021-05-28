@@ -30,6 +30,8 @@ else
 fi
 
 ### Apply secrets
-./postbuildscripts/secrets.sh
+DIR=`dirname $0`
+cd $DIR
+./secrets.sh
 
 kill $pid
