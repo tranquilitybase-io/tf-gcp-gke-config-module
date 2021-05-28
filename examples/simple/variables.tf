@@ -40,3 +40,13 @@ variable "workload_identity_service_account" {
   }))
   description = "GCP service account created for workload identity"
 }
+
+variable "secret_data" {
+  type        = map(string)
+  description = ""
+}
+
+variable "istio_version" {
+  type = number
+  description = ""
+}
