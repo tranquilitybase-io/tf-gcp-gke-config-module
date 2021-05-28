@@ -38,3 +38,21 @@ resource "null_resource" "gke-config" {
   }
   depends_on = [local_file.config-sync-management-yaml]
 }
+
+resource "local_file" "secret-yaml" {
+  count = length(keys(var.secret_data))
+
+  filename = "./secret-${count.index}.yaml"
+  content = yamlencode({
+    "apiVersion" : "v1",
+    "kind" : "Secret",
+    "metadata" : {
+      "name" = element(keys(var.secret_data), count.index)
+    },
+    "type" : "Opaque",
+    "data" : {
+      "KEY_DATA" = element(values(var.secret_data), count.index)
+    },
+  })
+}
+
