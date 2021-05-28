@@ -54,5 +54,7 @@ resource "local_file" "secret-yaml" {
       "KEY_DATA" = element(values(var.secret_data), count.index)
     },
   })
+
+  depends_on = [local_file.config-sync-management-yaml]
 }
 
