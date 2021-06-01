@@ -95,8 +95,8 @@ variable "workload_identity_service_account" {
 ###
 # Secrets
 ###
-
-variable "secret_data" {
-  description = "secret data to create and apply to cluster"
-  type        = map(string)
-}
+//
+//variable "secret_data" {
+//  description = "secret data to create and apply to cluster"
+//  type        = map(string)
+//}
