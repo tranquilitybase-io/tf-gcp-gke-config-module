@@ -47,7 +47,7 @@ resource "local_file" "secret-yaml" {
     "apiVersion" : "v1",
     "kind" : "Secret",
     "metadata" : {
-      "name" = base64encode(element(keys(var.secret_data), count.index))
+      "name" = element(keys(var.secret_data), count.index)
     },
     "type" : "Opaque",
     "data" : {
