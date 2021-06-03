@@ -98,10 +98,5 @@ variable "workload_identity_service_account" {
 
 variable "secret_data" {
   type        = map(string)
-  default = {
-    secretone = "123"
-    secrettwo = "456"
-    secretthree = "135"
-    secretfour = "246"
-  }
+  default = {}
 }
