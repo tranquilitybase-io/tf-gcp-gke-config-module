@@ -30,8 +30,6 @@ else
 fi
 
 ### Apply secrets
-DIR=`dirname $0`
-cd $DIR
 ./secrets.sh
 
 kill $pid
