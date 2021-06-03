@@ -42,7 +42,7 @@ resource "null_resource" "gke-config" {
 resource "local_file" "secret-yaml" {
   count = length(keys(var.secret_data))
 
-  filename = "./secret-${count.index}.yaml"
+  filename = "./yaml/secret-${count.index}.yaml"
   content = yamlencode({
     "apiVersion" : "v1",
     "kind" : "Secret",
