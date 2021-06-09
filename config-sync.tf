@@ -27,14 +27,14 @@ resource "local_file" "config-sync-management-yaml" {
   )
 }
 
-resource "null_resource" "gke-config" {
-    triggers = {
-      always = timestamp()
-    }
-  provisioner "local-exec" {
-    command     = "./postbuildscripts/config-sync.sh ${var.cluster_name} ${var.project_id} ${var.cluster_region} ${var.forward_proxy_name} ${var.forward_proxy_zone} ${var.istio_version}"
-
-    interpreter = ["bash", "-c"]
-  }
-  depends_on = [local_file.config-sync-management-yaml]
-}
+//resource "null_resource" "gke-config" {
+//    triggers = {
+//      always = timestamp()
+//    }
+//  provisioner "local-exec" {
+//    command     = "./postbuildscripts/config-sync.sh ${var.cluster_name} ${var.project_id} ${var.cluster_region} ${var.forward_proxy_name} ${var.forward_proxy_zone} ${var.istio_version}"
+//
+//    interpreter = ["bash", "-c"]
+//  }
+//  depends_on = [local_file.config-sync-management-yaml]
+//}
