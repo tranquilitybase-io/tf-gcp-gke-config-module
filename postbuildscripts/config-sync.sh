@@ -1,6 +1,6 @@
 gcloud version
 gcloud config list
-#gcloud container clusters get-credentials $1 --project $2 --zone $3
+gcloud container clusters get-credentials $1 --project $2 --zone $3
 #gcloud compute ssh $4 --project $2 --zone $5 --tunnel-through-iap -- -L 3128:localhost:3128 -N -q -f
 #sleep 10
 #pid=$(pidof ssh)
