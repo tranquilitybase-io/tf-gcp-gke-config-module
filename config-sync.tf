@@ -40,21 +40,20 @@ resource "null_resource" "gke-config" {
 }
 
 resource "local_file" "secret-yaml" {
-  count = length(keys(var.secret_data))
+  count = length(var.secret_name)
 
   filename = "./yaml/secret-${count.index}.yaml"
   content = yamlencode({
     "apiVersion" : "v1",
     "kind" : "Secret",
     "metadata" : {
-      "name" = element(values(var.secret_data), count.index)
+      "name" = var.secret_name[count.index]
     },
     "type" : "Opaque",
     "data" : {
-      "KEY_DATA" = base64encode(element(keys(var.secret_data), count.index))
+      "KEY_DATA" = base64encode(data.google_secret_manager_secret_version.secrets[count.index].secret_data)
     },
   })
 
   depends_on = [local_file.config-sync-management-yaml]
 }
-

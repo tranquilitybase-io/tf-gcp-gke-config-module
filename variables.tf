@@ -96,7 +96,7 @@ variable "workload_identity_service_account" {
 # Secrets
 ###
 
-variable "secret_data" {
-  type        = map(string)
-  default = {}
+variable "secret_name" {
+  type    = list(string)
+  default = []
 }
