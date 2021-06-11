@@ -34,16 +34,16 @@ variable "forward_proxy_zone" {
 }
 
 variable "workload_identity_service_account" {
+  description = "GCP service account created for workload identity"
   type = map(object({
     service_account_name = string
     namespace = string
   }))
-  description = "GCP service account created for workload identity"
 }
 
 variable "secret_name" {
   type        = list(string)
-  description = []
+  description = ""
 }
 
 variable "istio_version" {
