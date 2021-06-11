@@ -13,10 +13,10 @@
 # limitations under the License.
 
 module "workload-identity" {
-  source    = "terraform-google-modules/kubernetes-engine/google//modules/workload-identity"
-  version   = "14.1.0"
+  source  = "terraform-google-modules/kubernetes-engine/google//modules/workload-identity"
+  version = "14.1.0"
 
-  for_each            = var.workload_identity_service_account
+  for_each = var.workload_identity_service_account
 
   annotate_k8s_sa     = false
   use_existing_k8s_sa = true

@@ -37,7 +37,7 @@ variable "workload_identity_service_account" {
   description = "GCP service account created for workload identity"
   type = map(object({
     service_account_name = string
-    namespace = string
+    namespace            = string
   }))
 }
 
@@ -47,6 +47,6 @@ variable "secret_name" {
 }
 
 variable "istio_version" {
-  type = number
+  type        = number
   description = ""
 }
