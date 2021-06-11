@@ -97,7 +97,7 @@ variable "workload_identity_service_account" {
 ###
 
 variable "secret_name" {
-  description = "List of secret names to pull from secret manager and apply to cluster"
+  description = "List of secret names to pull from secret manager and apply to the cluster"
   type        = list(string)
   default     = null
 }

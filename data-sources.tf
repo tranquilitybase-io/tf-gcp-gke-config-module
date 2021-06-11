@@ -12,8 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+locals {
+  secret_num = length(var.secret_name)
+}
+
 data "google_secret_manager_secret_version" "secrets" {
-  count = length(var.secret_name)
+  count = local.secret_num
 
   secret  = element(var.secret_name, count.index)
   project = var.project_id
