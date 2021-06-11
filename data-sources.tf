@@ -13,7 +13,7 @@
 # limitations under the License.
 
 data "google_secret_manager_secret_version" "secrets" {
-  count = var.secret_name ? length(var.secret_name) : 0
+  count = length(var.secret_name)
 
   secret  = element(var.secret_name, count.index)
   project = var.project_id
