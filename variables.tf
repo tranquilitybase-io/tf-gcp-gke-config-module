@@ -91,3 +91,62 @@ variable "workload_identity_service_account" {
   }))
   description = "Service account to create in gcp for workload identity"
 }
+
+
+/******************************************
+  Org variables
+ *****************************************/
+
+variable "domains_to_allow" {
+  description = ""
+  type = list(string)
+  default = ["example.com"]
+}
+
+variable "billing_data_users" {
+  description = ""
+  type = string
+  default = "gcp-billing-admins@example.com"
+}
+
+variable "audit_data_users" {
+  description = ""
+  type = string
+  default = "gcp-security-admins@example.com"
+}
+
+variable "org_id" {
+  description = ""
+  type = string
+  default = "000000000000"
+}
+
+variable "billing_account" {
+  description = ""
+  type = string
+  default = "000000-000000-000000"
+}
+
+variable "terraform_service_account" {
+  description = ""
+  type = string
+  default = "org-terraform@example-project-2334.iam.gserviceaccount.com"
+}
+
+variable "default_region" {
+  description = ""
+  type = string
+  default = "us-central1"
+}
+
+variable "scc_notification_name" {
+  description = ""
+  type = string
+  default = "scc-notify"
+}
+
+variable "parent_folder" {
+  description = ""
+  type = string
+  default = "01234567890"
+}
