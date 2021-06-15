@@ -29,6 +29,6 @@ else
         ./istio.sh $ISTIO_VERSION
 fi
 
-#./cft-org.sh
+./cft-org.sh
 
 kill $pid
