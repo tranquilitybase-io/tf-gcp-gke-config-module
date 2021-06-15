@@ -90,6 +90,7 @@ variable "workload_identity_service_account" {
     namespace = string
   }))
   description = "Service account to create in gcp for workload identity"
+  default = {}
 }
 
 
@@ -149,4 +150,16 @@ variable "parent_folder" {
   description = ""
   type = string
   default = "01234567890"
+}
+
+variable "scc_notification_filter" {
+  description = ""
+  type = string
+  default = "state=\\\"ACTIVE\\\""
+}
+
+variable "create_access_context_manager_access_policy" {
+  description = ""
+  type = bool
+  default = false
 }
