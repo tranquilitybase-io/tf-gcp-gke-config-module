@@ -12,15 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-module "workload-identity" {
-  source    = "terraform-google-modules/kubernetes-engine/google//modules/workload-identity"
-  version   = "14.1.0"
-
-  for_each            = var.workload_identity_service_account
-
-  annotate_k8s_sa     = false
-  use_existing_k8s_sa = true
-  name                = each.value["service_account_name"]
-  namespace           = each.value["namespace"]
-  project_id          = var.project_id
-}
+//module "workload-identity" {
+//  source    = "terraform-google-modules/kubernetes-engine/google//modules/workload-identity"
+//  version   = "14.1.0"
+//
+//  for_each            = var.workload_identity_service_account
+//
+//  annotate_k8s_sa     = false
+//  use_existing_k8s_sa = true
+//  name                = each.value["service_account_name"]
+//  namespace           = each.value["namespace"]
+//  project_id          = var.project_id
+//}
