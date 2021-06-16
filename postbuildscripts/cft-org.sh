@@ -4,4 +4,4 @@ cp ../build/tf-wrapper.sh .
 chmod 755 ./tf-wrapper.sh
 cd ./envs/shared/
 pwd
-echo test
+ls -la

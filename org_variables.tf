@@ -3,7 +3,7 @@
 ###
 
 resource "local_file" "org_tfvars" {
-  filename = "./org.tfvars"
+  filename = "./postbuildscripts/org.tfvars"
   content = templatefile("./templates/org.tfvars.tpl",
   {
     domains_to_allow                            = jsonencode(var.domains_to_allow)
