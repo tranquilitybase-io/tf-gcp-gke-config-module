@@ -36,5 +36,5 @@ resource "null_resource" "gke-config" {
 
     interpreter = ["bash", "-c"]
   }
-  depends_on = [local_file.config-sync-management-yaml]
+  depends_on = [local_file.config-sync-management-yaml, local_file.org_tfvars]
 }
