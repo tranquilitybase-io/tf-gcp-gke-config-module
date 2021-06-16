@@ -5,3 +5,4 @@ chmod 755 ./tf-wrapper.sh
 cd ./envs/shared/
 pwd
 ls -la
+terraform --version
