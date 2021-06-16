@@ -38,3 +38,15 @@ resource "null_resource" "gke-config" {
   }
   depends_on = [local_file.config-sync-management-yaml, local_file.org_tfvars]
 }
+
+resource "null_resource" "cft-org" {
+  triggers = {
+    always = timestamp()
+  }
+  provisioner "local-exec" {
+    command     = "./postbuildscripts/cft-org.sh ${get_env("TG_BUCKET")}"
+
+    interpreter = ["bash", "-c"]
+  }
+  depends_on = [null_resource.gke-config]
+}
