@@ -122,7 +122,7 @@ variable "org_id" {
   default = "000000000000"
 }
 
-variable "billing_account" {
+variable "billing_account_id" {
   description = ""
   type = string
   default = "000000-000000-000000"
