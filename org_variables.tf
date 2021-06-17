@@ -4,7 +4,7 @@
 
 resource "local_file" "org_tfvars" {
   filename = "./postbuildscripts/org.auto.tfvars"
-  content = templatefile("./templates/org.tfvars.tpl",
+  content = templatefile("./templates/org.auto.tfvars.tpl",
   {
     domains_to_allow                            = jsonencode(var.domains_to_allow)
     billing_data_users                          = var.billing_data_users
