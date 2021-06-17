@@ -128,12 +128,6 @@ variable "billing_account" {
   default = "000000-000000-000000"
 }
 
-variable "terraform_service_account" {
-  description = ""
-  type = string
-  default = "org-terraform@example-project-2334.iam.gserviceaccount.com"
-}
-
 variable "default_region" {
   description = ""
   type = string
@@ -162,4 +156,10 @@ variable "create_access_context_manager_access_policy" {
   description = ""
   type = bool
   default = false
+}
+
+variable "bootstrap_service_account" {
+  description = ""
+  type = string
+  default = ""
 }
