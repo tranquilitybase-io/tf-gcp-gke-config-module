@@ -131,7 +131,7 @@ variable "billing_account" {
 variable "default_region" {
   description = ""
   type = string
-  default = "us-central1"
+  default = "europe-west2"
 }
 
 variable "scc_notification_name" {

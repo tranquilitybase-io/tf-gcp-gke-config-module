@@ -7,7 +7,6 @@ chmod 755 ./tf-wrapper.sh
 cd ./envs/shared/
 rm terraform.example.tfvars
 ls -la
-cat org.tfvars
 terraform --version
 terraform init
 terraform plan
