@@ -101,7 +101,7 @@ variable "workload_identity_service_account" {
 variable "domains_to_allow" {
   description = ""
   type = list(string)
-  default = ["example.com"]
+  default = []
 }
 
 variable "billing_data_users" {
