@@ -10,7 +10,7 @@ resource "local_file" "org_tfvars" {
     billing_data_users                          = var.billing_data_users
     audit_data_users                            = var.audit_data_users
     org_id                                      = var.org_id
-    billing_account_id                          = var.billing_account_id
+    billing_account                             = var.billing_account_id
     terraform_service_account                   = var.bootstrap_service_account
     default_region                              = var.default_region
     scc_notification_name                       = var.scc_notification_name
