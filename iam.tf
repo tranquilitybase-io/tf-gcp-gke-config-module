@@ -24,3 +24,9 @@
 //  namespace           = each.value["namespace"]
 //  project_id          = var.project_id
 //}
+
+resource "google_billing_account_iam_member" "bootstrap-billing-account-user" {
+  billing_account_id = var.billing_account_id
+  role               = "roles/billing.user"
+  member             = var.bootstrap_service_account
+}
