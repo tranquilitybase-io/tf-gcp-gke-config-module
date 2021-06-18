@@ -6,7 +6,7 @@ cp ../build/tf-wrapper.sh .
 chmod 755 ./tf-wrapper.sh
 cd ./envs/shared/
 rm terraform.example.tfvars
-rm providers.tf
+#rm providers.tf
 ls -la
 terraform --version
 terraform init
