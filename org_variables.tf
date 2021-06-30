@@ -15,7 +15,6 @@ resource "local_file" "org_tfvars" {
     default_region                              = var.default_region
     scc_notification_name                       = var.scc_notification_name
     parent_folder                               = var.parent_folder
-    #scc_notification_filter                     = var.scc_notification_filter
     create_access_context_manager_access_policy = var.create_access_context_manager_access_policy
     enable_hub_and_spoke                        = var.enable_hub_and_spoke
   }
