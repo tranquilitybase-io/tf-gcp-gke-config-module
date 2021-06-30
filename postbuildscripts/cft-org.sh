@@ -1,4 +1,5 @@
 git clone https://github.com/terraform-google-modules/terraform-example-foundation.git
+cat org.auto.tfvars
 cp ./org.auto.tfvars ./terraform-example-foundation/1-org/envs/shared
 for i in `find -name 'backend.tf'`; do sed -i 's/UPDATE_ME/'$TG_BUCKET'/' $i; done
 cd ./terraform-example-foundation/1-org
