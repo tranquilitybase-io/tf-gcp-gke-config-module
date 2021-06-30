@@ -158,6 +158,12 @@ variable "create_access_context_manager_access_policy" {
   default = false
 }
 
+variable "enable_hub_and_spoke" {
+  description = ""
+  type        = bool 
+  default     = true
+}
+
 variable "bootstrap_service_account" {
   description = ""
   type = string
