@@ -11,7 +11,6 @@ terraform_service_account                   = "${terraform_service_account}"
 default_region                              = "${default_region}"
 scc_notification_name                       = "${scc_notification_name}"
 parent_folder                               = "${parent_folder}"
-#scc_notification_filter                     = "${scc_notification_filter}"
 create_access_context_manager_access_policy = "${create_access_context_manager_access_policy}"
 enable_hub_and_spoke                        = "${enable_hub_and_spoke}"
 
