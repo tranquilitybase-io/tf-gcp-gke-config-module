@@ -137,7 +137,7 @@ variable "default_region" {
 variable "scc_notification_name" {
   description = ""
   type = string
-  default = "scc-notify"
+  default = "scc-notify-test"
 }
 
 variable "parent_folder" {
