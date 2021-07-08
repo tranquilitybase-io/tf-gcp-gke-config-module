@@ -1,7 +1,10 @@
-echo "Switching user from root to cloudsdk ..."
-su - cloudsdk
+
+su - cloudsdk -c "gcloud config set auth/impersonate_service_account ${_TF_SA_EMAIL} \
+ && gcloud config set account $(gcloud config get-value account) && gcloud config set project $(gcloud config get-value project) \
+ && gcloud compute ssh $4 --zone $5 --project $2 --tunnel-through-iap -- -L 3128:localhost:3128 -N -q -f"
+ 
 gcloud container clusters get-credentials $1 --project $2 --zone $3
-gcloud compute ssh $4 --project $2 --zone $5 --tunnel-through-iap -- -L 3128:localhost:3128 -N -q -f
+# gcloud compute ssh $4 --project $2 --zone $5 --tunnel-through-iap -- -L 3128:localhost:3128 -N -q -f
 sleep 10
 pid=$(pidof ssh)
 HTTPS_PROXY=localhost:3128 gsutil cp gs://config-management-release/released/latest/config-sync-operator.yaml ./config-sync-operator.yaml
