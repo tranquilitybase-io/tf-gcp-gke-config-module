@@ -1,16 +1,10 @@
-set -ex 
-
-echo "Variables are SA: $(gcloud config get-value auth/impersonate_service_account), Account: $(gcloud config get-value account), Project: $(gcloud config get-value project)"
-
 su - cloudsdk -c "gcloud config set auth/impersonate_service_account $(gcloud config get-value auth/impersonate_service_account) \
  && gcloud config set account $(gcloud config get-value account) && gcloud config set project $(gcloud config get-value project) \
  && gcloud compute ssh $4 --zone $5 --project $2 --tunnel-through-iap -- -L 3128:localhost:3128 -N -q -f"
  
-gcloud config list
 gcloud container clusters get-credentials $1 --project $2 --zone $3
-# gcloud compute ssh $4 --project $2 --zone $5 --tunnel-through-iap -- -L 3128:localhost:3128 -N -q -f
-sleep 10
-pid=$(pidof ssh)
+# sleep 10
+# pid=$(pidof ssh)
 HTTPS_PROXY=localhost:3128 gsutil cp gs://config-management-release/released/latest/config-sync-operator.yaml ./config-sync-operator.yaml
 HTTPS_PROXY=localhost:3128 kubectl apply -f config-sync-operator.yaml
 HTTPS_PROXY=localhost:3128 cat config-management.yaml
@@ -38,4 +32,4 @@ else
         ./istio.sh $ISTIO_VERSION
 fi
 
-kill $pid
+# kill $pid
