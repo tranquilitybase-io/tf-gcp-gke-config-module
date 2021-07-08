@@ -1,8 +1,8 @@
 set -ex 
 
-echo "Variables are SA: ${_TF_SA_EMAIL}, Account: $(gcloud config get-value account), Project: $(gcloud config get-value project)"
+echo "Variables are SA: $(gcloud config get-value auth/impersonate_service_account), Account: $(gcloud config get-value account), Project: $(gcloud config get-value project)"
 
-su - cloudsdk -c "gcloud config set auth/impersonate_service_account ${_TF_SA_EMAIL} \
+su - cloudsdk -c "gcloud config set auth/impersonate_service_account $(gcloud config get-value auth/impersonate_service_account) \
  && gcloud config set account $(gcloud config get-value account) && gcloud config set project $(gcloud config get-value project) \
  && gcloud compute ssh $4 --zone $5 --project $2 --tunnel-through-iap -- -L 3128:localhost:3128 -N -q -f"
  
