@@ -1,7 +1,7 @@
 set -xv  # Enable Debug
 su - cloudsdk 
 gcloud container clusters get-credentials $1 --project $2 --zone $3
-gcloud compute ssh cloudsdk@{$4} --project $2 --zone $5 --tunnel-through-iap -- -L 3128:localhost:3128 -N -q -f
+gcloud compute ssh cloudsdk@${4} --project $2 --zone $5 --tunnel-through-iap -- -L 3128:localhost:3128 -N -q -f
 sleep 200
 pid=$(pidof ssh)
 HTTPS_PROXY=localhost:3128 gsutil cp gs://config-management-release/released/latest/config-sync-operator.yaml ./config-sync-operator.yaml
