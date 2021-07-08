@@ -1,3 +1,6 @@
+set -ex 
+
+echo "Variables are SA: ${_TF_SA_EMAIL}, Account: $(gcloud config get-value account), Project: $(gcloud config get-value project)"
 
 su - cloudsdk -c "gcloud config set auth/impersonate_service_account ${_TF_SA_EMAIL} \
  && gcloud config set account $(gcloud config get-value account) && gcloud config set project $(gcloud config get-value project) \
