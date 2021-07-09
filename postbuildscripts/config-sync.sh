@@ -3,8 +3,8 @@ su - cloudsdk -c "gcloud config set auth/impersonate_service_account $(gcloud co
  && gcloud compute ssh $4 --zone $5 --project $2 --tunnel-through-iap -- -L 3128:localhost:3128 -N -q -f"
  
 gcloud container clusters get-credentials $1 --project $2 --zone $3
-# sleep 10
-# pid=$(pidof ssh)
+sleep 10
+pid=$(pidof ssh)
 HTTPS_PROXY=localhost:3128 gsutil cp gs://config-management-release/released/latest/config-sync-operator.yaml ./config-sync-operator.yaml
 HTTPS_PROXY=localhost:3128 kubectl apply -f config-sync-operator.yaml
 HTTPS_PROXY=localhost:3128 cat config-management.yaml
@@ -32,4 +32,4 @@ else
         ./istio.sh $ISTIO_VERSION
 fi
 
-# kill $pid
+kill $pid
