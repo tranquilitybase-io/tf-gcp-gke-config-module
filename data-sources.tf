@@ -12,15 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-module "workload-identity" {
-  source  = "terraform-google-modules/kubernetes-engine/google//modules/workload-identity"
-  version = "14.1.0"
+data "google_secret_manager_secret_version" "secrets" {
+  count = length(var.secret_name)
 
-  for_each = var.workload_identity_service_account
-
-  annotate_k8s_sa     = false
-  use_existing_k8s_sa = true
-  name                = each.value["service_account_name"]
-  namespace           = each.value["namespace"]
-  project_id          = var.project_id
+  secret  = element(var.secret_name, count.index)
+  project = var.project_id
 }

@@ -32,4 +32,7 @@ else
         ./istio.sh $ISTIO_VERSION
 fi
 
+### Apply secrets
+./secrets.sh
+
 kill $pid

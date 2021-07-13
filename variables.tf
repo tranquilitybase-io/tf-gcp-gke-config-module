@@ -23,49 +23,49 @@ variable "project_id" {
 
 variable "cluster_name" {
   description = "Cluster name"
-  type = string
+  type        = string
 }
 
 variable "sync_url" {
   description = "Repo sync url"
-  type = string
+  type        = string
 }
 
 variable "sync_branch" {
   description = "Sync branch"
-  type = string
-  default = "master"
+  type        = string
+  default     = "master"
 }
 
 variable "secret_type" {
   description = "Secret type for sync repo"
-  type = string
-  default = "none"
+  type        = string
+  default     = "none"
 }
 
 variable "root_manifest_folder_name" {
   description = "Root folder that holds manifests"
-  type = string
+  type        = string
 }
 
 variable "cluster_region" {
   description = "Region of gke cluster"
-  type = string
+  type        = string
 }
 
 variable "forward_proxy_name" {
   description = "Forward proxy instance name"
-  type = string
+  type        = string
 }
 
 variable "forward_proxy_zone" {
   description = "Forward proxy instance zone"
-  type = string
+  type        = string
 }
 
 variable "istio_version" {
   description = "input for istio_version"
-  type = string
+  type        = string
 }
 
 ###
@@ -87,7 +87,17 @@ variable "service_account_prefix" {
 variable "workload_identity_service_account" {
   type = map(object({
     service_account_name = string
-    namespace = string
+    namespace            = string
   }))
   description = "Service account to create in gcp for workload identity"
+}
+
+###
+# Secrets
+###
+
+variable "secret_name" {
+  description = "List of secret names to pull from secret manager and apply to the cluster"
+  type        = list(string)
+  default     = null
 }

@@ -23,4 +23,6 @@ module "gke-config" {
   root_manifest_folder_name         = var.root_manifest_folder_name
   sync_url                          = var.sync_url
   workload_identity_service_account = var.workload_identity_service_account
+  secret_name                       = var.secret_name
+  istio_version                     = var.istio_version
 }
