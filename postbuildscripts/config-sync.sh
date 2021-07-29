@@ -55,8 +55,8 @@ fi
 # =======================================
 echo "3 pvt ingress"
 cd $DIR
-chmod +x ./3_private_ingress/istio.sh
-      ./3_private_ingress/istio.sh
+chmod +x ./3_private_ingress/ingress.sh
+      ./3_private_ingress/ingress.sh
 cd ..
 
 # =======================================
