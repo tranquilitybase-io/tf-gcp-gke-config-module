@@ -1,4 +1,5 @@
 # #!/bin/bash -x
+export HTTPS_PROXY="localhost:3128"
 
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -subj '/O=TB Inc./CN=eagle-console.tranquilitybase-demo.io' -keyout private.landing-zone.com.key -out private.landing-zone.com.crt
 openssl req -out eagle-console.private.landing-zone.com.csr -newkey rsa:2048 -nodes -keyout eagle-console.private.landing-zone.com.key -subj "/CN=eagle-console.tranquilitybase-demo.io/O=eagle-console organization"
