@@ -1,5 +1,6 @@
 #!/bin/bash
-
+MYSELF="$(realpath "$0")"
+MYDIR="${MYSELF%/*}"
 
 PROJECT_ID=$(gcloud config list --format 'value(core.project)' 2>/dev/null)
 echo "Project: "$PROJECT_ID
@@ -34,5 +35,5 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
 #
 echo ""
 echo "create key"
-gcloud iam service-accounts keys create ec-service-account-config.json \
+gcloud iam service-accounts keys create $MYDIR/ec-service-account-config.json \
     --iam-account=$fullId
