@@ -2,6 +2,10 @@
 MYSELF="$(realpath "$0")"
 MYDIR="${MYSELF%/*}"
 
+echo "list credentialed users:"
+gcloud auth list
+
+
 PROJECT_ID=$(gcloud config list --format 'value(core.project)' 2>/dev/null)
 echo "Project: "$PROJECT_ID
 
