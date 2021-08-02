@@ -56,6 +56,6 @@ export HTTPS_PROXY="localhost:3128"
 #Initalise istio
 istioctl operator init > /dev/null 2>&1
 
-sleep 30
+sleep 100
 
 #End of istio installation
