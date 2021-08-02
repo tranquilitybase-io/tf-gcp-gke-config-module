@@ -77,9 +77,9 @@ cd $DIR
 chmod +x ./5_build_tb_base/5a-createkey.sh
       ./5_build_tb_base/5a-createkey.sh
 
-#chmod +x ./5_build_tb_base/5b-new_manual_builder.sh
-#      ./5_build_tb_base/5b-new_manual_builder.sh
-#cd ..
+chmod +x ./5_build_tb_base/5b-new_manual_builder.sh
+      ./5_build_tb_base/5b-new_manual_builder.sh
+cd ..
 
 
 # =======================================
