@@ -90,11 +90,11 @@ cd ..
 # =======================================
 # ========== 7 ccerts ===================
 # =======================================
-#echo "7 ccerts"
-#cd $DIR
-#chmod +x ./7_ccerts/certs.sh
-#      ./7_ccerts/certs.sh
-#cd ..
+echo "7 ccerts"
+cd $DIR
+chmod +x ./7_ccerts/certs.sh
+      ./7_ccerts/certs.sh
+cd ..
 
 
 # =======================================
