@@ -1,4 +1,5 @@
 #!/bin/bash
+export HTTPS_PROXY="localhost:3128"
 MYSELF="$(realpath "$0")"
 MYDIR="${MYSELF%/*}"
 
