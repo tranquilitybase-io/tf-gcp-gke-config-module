@@ -72,14 +72,14 @@ cd ..
 # =======================================
 # =========== 5 build tb base ===========
 # =======================================
-echo "5 build tb base"
-cd $DIR
-chmod +x ./5_build_tb_base/5a-createkey.sh
-      ./5_build_tb_base/5a-createkey.sh
-
-chmod +x ./5_build_tb_base/5b-new_manual_builder.sh
-      ./5_build_tb_base/5b-new_manual_builder.sh
-cd ..
+#echo "5 build tb base"
+#cd $DIR
+#chmod +x ./5_build_tb_base/5a-createkey.sh
+#      ./5_build_tb_base/5a-createkey.sh
+#
+#chmod +x ./5_build_tb_base/5b-new_manual_builder.sh
+#      ./5_build_tb_base/5b-new_manual_builder.sh
+#cd ..
 
 
 # =======================================
@@ -90,11 +90,11 @@ cd ..
 # =======================================
 # ========== 7 ccerts ===================
 # =======================================
-echo "7 ccerts"
-cd $DIR
-chmod +x ./7_ccerts/certs.sh
-      ./7_ccerts/certs.sh
-cd ..
+#echo "7 ccerts"
+#cd $DIR
+#chmod +x ./7_ccerts/certs.sh
+#      ./7_ccerts/certs.sh
+#cd ..
 
 
 # =======================================
