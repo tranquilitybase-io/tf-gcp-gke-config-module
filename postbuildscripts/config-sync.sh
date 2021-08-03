@@ -58,52 +58,52 @@ chmod +x ./3_private_ingress/ingress.sh
       ./3_private_ingress/ingress.sh
 cd ..
 
-## =======================================
-## ========= 4 istio services ============
-## =======================================
-#echo "4 istio services "
-#cd $DIR
-#chmod +x ./4_istio_services/istio_services.sh
-#      ./4_istio_services/istio_services.sh
-#cd ..
-#
-#
-## =======================================
-## =========== 5 build tb base ===========
-## =======================================
-#echo "5 build tb base"
-#cd $DIR
-#chmod +x ./5_build_tb_base/5a-createkey.sh
-#      ./5_build_tb_base/5a-createkey.sh
-#
-#chmod +x ./5_build_tb_base/5b-new_manual_builder.sh
-#      ./5_build_tb_base/5b-new_manual_builder.sh
-#cd ..
-#
-#
-## =======================================
-## ======== 6 in mngmt plane tf ==========
-## =======================================
-#
-#
-## =======================================
-## ========== 7 ccerts ===================
-## =======================================
-#echo "7 ccerts"
-#cd $DIR
-#chmod +x ./7_ccerts/certs.sh
-#      ./7_ccerts/certs.sh
-#cd ..
-#
-#
-## =======================================
-## ========== 8 EC =======================
-## =======================================
-#echo "8 EC "
-#cd $DIR
-#chmod +x ./8_EC/ec.sh
-#      ./8_EC/ec.sh
-#cd ..
+# =======================================
+# ========= 4 istio services ============
+# =======================================
+echo "4 istio services "
+cd $DIR
+chmod +x ./4_istio_services/istio_services.sh
+      ./4_istio_services/istio_services.sh
+cd ..
+
+
+# =======================================
+# =========== 5 build tb base ===========
+# =======================================
+echo "5 build tb base"
+cd $DIR
+chmod +x ./5_build_tb_base/5a-createkey.sh
+      ./5_build_tb_base/5a-createkey.sh
+
+chmod +x ./5_build_tb_base/5b-new_manual_builder.sh
+      ./5_build_tb_base/5b-new_manual_builder.sh
+cd ..
+
+
+# =======================================
+# ======== 6 in mngmt plane tf ==========
+# =======================================
+
+
+# =======================================
+# ========== 7 ccerts ===================
+# =======================================
+echo "7 ccerts"
+cd $DIR
+chmod +x ./7_ccerts/certs.sh
+      ./7_ccerts/certs.sh
+cd ..
+
+
+# =======================================
+# ========== 8 EC =======================
+# =======================================
+echo "8 EC "
+cd $DIR
+chmod +x ./8_EC/ec.sh
+      ./8_EC/ec.sh
+cd ..
 
 
 
