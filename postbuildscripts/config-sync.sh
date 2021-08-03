@@ -42,13 +42,19 @@ else
 fi
 
 
-
+sleep 100
 
 
 # =======================================
 # ===== 2 part of mngmnt plane tf =======
 # =======================================
+echo "2 add gcp fw for istio"
+cd $DIR
+chmod +x ./2_gcp_fw/2-add-gcp-fw-for-istio-webhook.sh
+      ./2_gcp_fw/2-add-gcp-fw-for-istio-webhook.sh
+cd ..
 
+sleep 100
 
 # =======================================
 # ========== 3 pvt ingress ==============
