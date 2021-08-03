@@ -28,18 +28,11 @@ echo "Scirpt Location: $DIRECTORY"
 # ===== 1 istio =======
 # =====================
 
-ISTIO_VERSION="$6"
-if [ -z "$ISTIO_VERSION" ] 
-then
-	echo "1 Skipped Installing Istio - No Version found"
- 
-else
-	echo "1 Installing Istio version  $ISTIO_VERSION"
-	cd $DIR
-	chmod +x ./1_istio/istio.sh
-        ./1_istio/istio.sh $ISTIO_VERSION
-  cd ..
-fi
+echo "1 Installing Istio version $ISTIO_VERSION"
+cd $DIR
+chmod +x ./1_istio/istio.sh
+      ./1_istio/istio.sh $ISTIO_VERSION
+cd ..
 
 
 sleep 100
