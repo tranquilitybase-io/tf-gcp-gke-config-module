@@ -1,7 +1,6 @@
+#!/bin/bash
 
-#Start of Istio Installation
-ISTIO_VERSION=$1
-echo "Istio version: $ISTIO_VERSION";
+ISTIO_VERSION=1.9.4
 
 sp='/-\|'
 sc=0
@@ -57,5 +56,21 @@ export HTTPS_PROXY="localhost:3128"
 istioctl operator init > /dev/null 2>&1
 
 sleep 30
+kubectl create ns istio-system
+kubectl apply -f - <<EOF
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  namespace: istio-system
+  name: example-istiocontrolplane
+spec:
+  profile: demo
+EOF
 
-#End of istio installation
+
+kubectl get pods -n istio-system
+
+
+printf "Enabling Istio Injection...\n"
+kubectl label namespace default istio-injection=enabled > /dev/null 2>&1
+kubectl describe namespace default |grep -i labels

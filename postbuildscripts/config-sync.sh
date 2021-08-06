@@ -18,18 +18,93 @@ for KEY in "${!namespaces[@]}"; do
 done
 
 
-ISTIO_VERSION="$6"
-if [ -z "$ISTIO_VERSION" ] 
-then
-	echo "Skipped Installing Istio - No Version found"
- 
-else
-	echo "Installing Istion verison  $ISTIO_VERSION"
-	DIR=`dirname $0`
-	echo "Scirpt Location: $DIRECTORY"
-	cd $DIR
-	chmod +x ./istio.sh
-        ./istio.sh $ISTIO_VERSION
-fi
+# Establish
+DIR=`dirname $0`
+echo "Scirpt Location: $DIRECTORY"
+
+
+
+# =====================
+# ===== 1 istio =======
+# =====================
+
+echo "1 Installing Istio version $ISTIO_VERSION"
+cd $DIR
+chmod +x ./1_istio/istio.sh
+      ./1_istio/istio.sh $ISTIO_VERSION
+cd ..
+
+
+sleep 100
+
+
+# =======================================
+# ===== 2 part of mngmnt plane tf =======
+# =======================================
+echo "2 add gcp fw for istio"
+cd $DIR
+chmod +x ./2_gcp_fw/2-add-gcp-fw-for-istio-webhook.sh
+      ./2_gcp_fw/2-add-gcp-fw-for-istio-webhook.sh
+cd ..
+
+sleep 100
+
+# =======================================
+# ========== 3 pvt ingress ==============
+# =======================================
+echo "3 pvt ingress"
+cd $DIR
+chmod +x ./3_private_ingress/ingress.sh
+      ./3_private_ingress/ingress.sh
+cd ..
+
+# =======================================
+# ========= 4 istio services ============
+# =======================================
+echo "4 istio services "
+cd $DIR
+chmod +x ./4_istio_services/istio_services.sh
+      ./4_istio_services/istio_services.sh
+cd ..
+
+
+# =======================================
+# =========== 5 build tb base ===========
+# =======================================
+echo "5 build tb base"
+cd $DIR
+chmod +x ./5_build_tb_base/5a-createkey.sh
+      ./5_build_tb_base/5a-createkey.sh
+
+chmod +x ./5_build_tb_base/5b-new_manual_builder.sh
+      ./5_build_tb_base/5b-new_manual_builder.sh
+cd ..
+
+
+# =======================================
+# ======== 6 in mngmt plane tf ==========
+# =======================================
+
+
+# =======================================
+# ========== 7 ccerts ===================
+# =======================================
+echo "7 ccerts"
+cd $DIR
+chmod +x ./7_ccerts/certs.sh
+      ./7_ccerts/certs.sh
+cd ..
+
+
+# =======================================
+# ========== 8 EC =======================
+# =======================================
+echo "8 EC "
+cd $DIR
+chmod +x ./8_EC/ec.sh
+      ./8_EC/ec.sh
+cd ..
+
+
 
 kill $pid
