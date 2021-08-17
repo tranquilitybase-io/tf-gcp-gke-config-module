@@ -34,7 +34,7 @@ variable "sync_url" {
 variable "sync_branch" {
   description = "Sync branch"
   type = string
-  default = "master"
+  default = "tuesday"
 }
 
 variable "secret_type" {
