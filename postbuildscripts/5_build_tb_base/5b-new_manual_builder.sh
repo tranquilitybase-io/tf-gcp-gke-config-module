@@ -21,6 +21,6 @@ kubectl create secret generic gcr-folder -n cicd --from-literal=folder=940339059
 
 # deploy apps
 kubectl apply -f $MYDIR/storageclasses.yaml
-kubectl apply -f $MYDIR/jenkins-master.yaml
+#kubectl apply -f $MYDIR/jenkins-master.yaml
 
 # kubectl --namespace istio-system get service istio-private-ingressgateway
