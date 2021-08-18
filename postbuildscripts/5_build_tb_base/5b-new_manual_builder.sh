@@ -13,8 +13,8 @@ kubectl create secret generic ec-service-account -n cicd --from-file=$MYDIR/ec-s
 kubectl create secret generic ec-service-account -n ssp --from-file=$MYDIR/ec-service-account-config.json
 
 # set basic auth
-kubectl create secret generic dac-user-pass -n cicd --from-literal=username=dac --from-literal=password='bad_password' --type=kubernetes.io/basic-auth
-kubectl create secret generic dac-user-pass -n ssp --from-literal=username=dac --from-literal=password='bad_password' --type=kubernetes.io/basic-auth
+#kubectl create secret generic dac-user-pass -n cicd --from-literal=username=dac --from-literal=password='bad_password' --type=kubernetes.io/basic-auth
+#kubectl create secret generic dac-user-pass -n ssp --from-literal=username=dac --from-literal=password='bad_password' --type=kubernetes.io/basic-auth
 
 # point to folder
 kubectl create secret generic gcr-folder -n cicd --from-literal=folder=940339059902
@@ -22,5 +22,4 @@ kubectl create secret generic gcr-folder -n cicd --from-literal=folder=940339059
 # deploy apps
 kubectl apply -f $MYDIR/storageclasses.yaml
 #kubectl apply -f $MYDIR/jenkins-master.yaml
-
 # kubectl --namespace istio-system get service istio-private-ingressgateway
