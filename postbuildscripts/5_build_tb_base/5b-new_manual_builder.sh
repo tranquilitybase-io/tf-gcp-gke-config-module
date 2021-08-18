@@ -17,7 +17,7 @@ kubectl create secret generic ec-service-account -n ssp --from-file=$MYDIR/ec-se
 #kubectl create secret generic dac-user-pass -n ssp --from-literal=username=dac --from-literal=password='bad_password' --type=kubernetes.io/basic-auth
 
 # point to folder
-kubectl create secret generic gcr-folder -n cicd --from-literal=folder=940339059902
+#kubectl create secret generic gcr-folder -n cicd --from-literal=folder=940339059902
 
 # deploy apps
 kubectl apply -f $MYDIR/storageclasses.yaml
@@ -26,12 +26,11 @@ kubectl apply -f $MYDIR/storageclasses.yaml
 
 
 # ==== Create K8s SA for jenkins ====
-echo "---- Create K8s SA for jsnkins ----"
-kubectl describe serviceaccount kubernetes-jenkins-token --namespace=cicd
-echo "----"
-token=kubectl describe secret $(kubectl describe serviceaccount kubernetes-jenkins-token --namespace=cicd | grep Token | awk '{print $2}') --namespace=cicd
+echo "---- Create K8s SA for jenkins ----"
+tokenId=$(kubectl describe serviceaccount cicd-service-account -n=cicd | grep Token | awk '{print $2}')
+echo "tokenId: $tokenId"
+token=$(kubectl describe secret $tokenId --namespace=cicd | grep token | awk 'FNR == 3 {print $2}')
 echo "token: $token"
+kubectl create secret generic cicd-service-account-token -n cicd --from-literal=token=$token
 
-kubectl create secret generic kubernetes-jenkins-token -n cicd --from-file=$MYDIR/kubernetes-jenkins-token.json
-kubectl create secret generic kubernetes-jenkins-token2 -n cicd --from-file=$MYDIR/kubernetes-jenkins-token.json
-
+kubectl create clusterrolebinding cicd-role-binding --clusterrole=admin --serviceaccount cicd:cicd-service-account
