@@ -31,6 +31,11 @@ tokenId=$(kubectl describe serviceaccount cicd-service-account -n=cicd | grep To
 echo "tokenId: $tokenId"
 token=$(kubectl describe secret $tokenId --namespace=cicd | grep token | awk 'FNR == 3 {print $2}')
 echo "token: $token"
-kubectl create secret generic cicd-service-account-token -n cicd --from-literal=token=$token
+echo $token > $MYDIR/cicd-service-account-token.txt
+kubectl create secret generic cicd-service-account-token -n cicd --from-file=$MYDIR/cicd-service-account-token.txt
+rm $MYDIR/cicd-service-account-token.txt
 
 kubectl create clusterrolebinding cicd-role-binding --clusterrole=admin --serviceaccount cicd:cicd-service-account
+
+
+#kubectl delete secret generic cicd-service-account-token
