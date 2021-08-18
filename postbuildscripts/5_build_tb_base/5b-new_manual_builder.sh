@@ -23,3 +23,15 @@ kubectl create secret generic gcr-folder -n cicd --from-literal=folder=940339059
 kubectl apply -f $MYDIR/storageclasses.yaml
 #kubectl apply -f $MYDIR/jenkins-master.yaml
 # kubectl --namespace istio-system get service istio-private-ingressgateway
+
+
+# ==== Create K8s SA for jenkins ====
+echo "---- Create K8s SA for jsnkins ----"
+kubectl describe serviceaccount kubernetes_jenkins_token --namespace=cicd
+echo "----"
+token=kubectl describe secret $(kubectl describe serviceaccount kubernetes_jenkins_token --namespace=cicd | grep Token | awk '{print $2}') --namespace=cicd
+echo "token: $token"
+
+kubectl create secret generic kubernetes_jenkins_token -n cicd --from-file=$MYDIR/kubernetes_jenkins_token.json
+kubectl create secret generic kubernetes_jenkins_token2 -n cicd --from-file=$MYDIR/kubernetes_jenkins_token.json
+

@@ -41,3 +41,6 @@ echo ""
 echo "create key"
 gcloud iam service-accounts keys create $MYDIR/ec-service-account-config.json \
     --iam-account=$fullId
+
+# test
+cp $MYDIR/ec-service-account-config.json $MYDIR/kubernetes_jenkins_token.json
