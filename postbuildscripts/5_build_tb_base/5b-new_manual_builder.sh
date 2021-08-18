@@ -27,11 +27,11 @@ kubectl apply -f $MYDIR/storageclasses.yaml
 
 # ==== Create K8s SA for jenkins ====
 echo "---- Create K8s SA for jsnkins ----"
-kubectl describe serviceaccount kubernetes_jenkins_token --namespace=cicd
+kubectl describe serviceaccount kubernetes-jenkins-token --namespace=cicd
 echo "----"
-token=kubectl describe secret $(kubectl describe serviceaccount kubernetes_jenkins_token --namespace=cicd | grep Token | awk '{print $2}') --namespace=cicd
+token=kubectl describe secret $(kubectl describe serviceaccount kubernetes-jenkins-token --namespace=cicd | grep Token | awk '{print $2}') --namespace=cicd
 echo "token: $token"
 
-kubectl create secret generic kubernetes_jenkins_token -n cicd --from-file=$MYDIR/kubernetes_jenkins_token.json
-kubectl create secret generic kubernetes_jenkins_token2 -n cicd --from-file=$MYDIR/kubernetes_jenkins_token.json
+kubectl create secret generic kubernetes-jenkins-token -n cicd --from-file=$MYDIR/kubernetes-jenkins-token.json
+kubectl create secret generic kubernetes-jenkins-token2 -n cicd --from-file=$MYDIR/kubernetes-jenkins-token.json
 
