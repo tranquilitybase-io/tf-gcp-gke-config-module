@@ -41,3 +41,4 @@ echo ""
 echo "create key"
 gcloud iam service-accounts keys create $MYDIR/ec-service-account-config.json \
     --iam-account=$fullId
+

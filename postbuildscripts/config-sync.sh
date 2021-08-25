@@ -1,7 +1,7 @@
 su - cloudsdk -c "gcloud config set auth/impersonate_service_account $(gcloud config get-value auth/impersonate_service_account) \
  && gcloud config set account $(gcloud config get-value account) && gcloud config set project $(gcloud config get-value project) \
  && gcloud compute ssh $4 --zone $5 --project $2 --tunnel-through-iap -- -L 3128:localhost:3128 -N -q -f"
- 
+
 gcloud container clusters get-credentials $1 --project $2 --zone $3
 sleep 10
 pid=$(pidof ssh)
